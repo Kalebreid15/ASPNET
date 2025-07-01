@@ -12,11 +12,18 @@ namespace Testing.Controllers
     {
         private readonly IProductRepository repo = repo;
 
-        
+
         public IActionResult Index()
         {
             var products = repo.GetAllProducts();
             return View(products);
+        }
+
+        public IActionResult ViewProduct(int id)
+        {
+            var product = repo.GetProductById(id);
+
+            return View(product);
         }
     }
 }
